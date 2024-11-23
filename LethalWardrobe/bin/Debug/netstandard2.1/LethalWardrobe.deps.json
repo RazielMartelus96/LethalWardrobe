@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "LethalWardrobe/0.0.0-alpha.0": {
+      "LethalWardrobe/0.0.0-alpha.0.4": {
         "dependencies": {
           "BepInEx.Analyzers": "1.0.8",
           "BepInEx.AssemblyPublicizer.MSBuild": "0.4.1",
@@ -967,7 +967,7 @@
     }
   },
   "libraries": {
-    "LethalWardrobe/0.0.0-alpha.0": {
+    "LethalWardrobe/0.0.0-alpha.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

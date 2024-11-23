@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using BepInEx;
 using LethalWardrobe.Model;
 using LethalWardrobe.Model.Config;
@@ -5,7 +6,7 @@ using LethalWardrobe.Patches;
 using UnityEngine;
 
 namespace LethalWardrobe;
-[BepInDependency(LethalWardrobeAPI.MyPluginInfo.PLUGIN_GUID)]
+[BepInDependency("Curiosity_Core-Lethal_Wardrobe_API")]
 [BepInPlugin(ModGuid, ModName, ModVersion)]
 public class LethalWardrobe : BaseUnityPlugin
 {

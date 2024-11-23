@@ -6,7 +6,7 @@ namespace System.Runtime.CompilerServices;
 public class Api : BaseUnityPlugin
 {
     private const string ModGuid = "Curiosity_Core-Lethal_Wardrobe_API";
-    private const string ModName = "Lethal Wardrobe";
-    private const string ModVersion = "0.1.0";
+    private const string ModName = "Lethal Wardrobe API";
+    private const string ModVersion = "0.1.2";
     
 }
