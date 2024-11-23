@@ -5,6 +5,7 @@ using LethalWardrobe.Patches;
 using UnityEngine;
 
 namespace LethalWardrobe;
+[BepInDependency(LethalWardrobeAPI.MyPluginInfo.PLUGIN_GUID)]
 [BepInPlugin(ModGuid, ModName, ModVersion)]
 public class LethalWardrobe : BaseUnityPlugin
 {
