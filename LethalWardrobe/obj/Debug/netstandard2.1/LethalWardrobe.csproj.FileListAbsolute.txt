@@ -47,3 +47,6 @@
 /home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/obj/Debug/netstandard2.1/LethalWa.DB487ADF.Up2Date
 /home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/obj/Debug/netstandard2.1/LethalWardrobe.dll
 /home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/obj/Debug/netstandard2.1/LethalWardrobe.pdb
+/home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/bin/Debug/netstandard2.1/LethalWardrobeAPI.dll
+/home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/bin/Debug/netstandard2.1/LethalWardrobeAPI.pdb
+/home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/obj/Debug/netstandard2.1/LethalWardrobe.sourcelink.json

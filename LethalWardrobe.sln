@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LethalWardrobe", "LethalWardrobe\LethalWardrobe.csproj", "{9B528D1E-D723-4A72-902D-D48B7BEB32A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LethalWardrobeAPI", "LethalWardrobeAPI\LethalWardrobeAPI.csproj", "{191B290F-23A3-4EC2-B4ED-FB44F8779C09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleMod", "ExampleMod\ExampleMod.csproj", "{63A90C78-F018-4F89-BAE6-9FF1856C2F91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{9B528D1E-D723-4A72-902D-D48B7BEB32A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B528D1E-D723-4A72-902D-D48B7BEB32A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B528D1E-D723-4A72-902D-D48B7BEB32A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191B290F-23A3-4EC2-B4ED-FB44F8779C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191B290F-23A3-4EC2-B4ED-FB44F8779C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191B290F-23A3-4EC2-B4ED-FB44F8779C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191B290F-23A3-4EC2-B4ED-FB44F8779C09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A90C78-F018-4F89-BAE6-9FF1856C2F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A90C78-F018-4F89-BAE6-9FF1856C2F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A90C78-F018-4F89-BAE6-9FF1856C2F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A90C78-F018-4F89-BAE6-9FF1856C2F91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

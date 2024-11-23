@@ -56,7 +56,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Model\Store\" />
       <Folder Include="Model\Util\Exceptions\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LethalWardrobeAPI\LethalWardrobeAPI.csproj" />
     </ItemGroup>
 
     <Target Name="SetPluginVersion" BeforeTargets="AddGeneratedFile" DependsOnTargets="MinVer">

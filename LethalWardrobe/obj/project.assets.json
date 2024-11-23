@@ -719,6 +719,20 @@
           "lib/netstandard2.0/UnityEngine.XRModule.dll": {},
           "lib/netstandard2.0/UnityEngine.dll": {}
         }
+      },
+      "LethalWardrobeAPI/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BepInEx.Core": "5.4.0",
+          "BepInEx.PluginInfoProps": "2.1.0"
+        },
+        "compile": {
+          "bin/placeholder/LethalWardrobeAPI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LethalWardrobeAPI.dll": {}
+        }
       }
     }
   },
@@ -2833,6 +2847,11 @@
         "unityengine.modules.2022.3.9.nupkg.sha512",
         "unityengine.modules.nuspec"
       ]
+    },
+    "LethalWardrobeAPI/1.0.0": {
+      "type": "project",
+      "path": "../LethalWardrobeAPI/LethalWardrobeAPI.csproj",
+      "msbuildProject": "../LethalWardrobeAPI/LethalWardrobeAPI.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2841,6 +2860,7 @@
       "BepInEx.AssemblyPublicizer.MSBuild >= 0.4.1",
       "BepInEx.Core >= 5.4.21",
       "BepInEx.PluginInfoProps >= 2.1.0",
+      "LethalWardrobeAPI >= 1.0.0",
       "MinVer >= 4.3.0",
       "UnityEngine.Modules >= 2022.3.9"
     ]
@@ -2870,7 +2890,11 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/jordan/RiderProjects/LethalWardrobe/LethalWardrobeAPI/LethalWardrobeAPI.csproj": {
+              "projectPath": "/home/jordan/RiderProjects/LethalWardrobe/LethalWardrobeAPI/LethalWardrobeAPI.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

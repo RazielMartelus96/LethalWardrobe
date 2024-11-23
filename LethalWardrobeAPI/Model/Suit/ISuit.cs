@@ -8,6 +8,11 @@ namespace LethalWardrobe.Model.Suit;
 /// </summary>
 public interface ISuit
 {
+    
+    /// <summary>
+    /// The unique id of the suit. Set within the suit's files. 
+    /// </summary>
+    ulong Id { get; set; }
     /// <summary>
     /// The Unlocklable name of the Suit.
     /// </summary>
