@@ -7,6 +7,8 @@ namespace LethalWardrobe.Model.Suit;
 /// </summary>
 public class CustomSuit : ISuit
 {
+    public ulong Id { get; set; }
+
     /// <inheritdoc/>
     public string UnlockableName { get; set; }
     /// <inheritdoc/>

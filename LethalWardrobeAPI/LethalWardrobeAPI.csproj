@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId></PackageId>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <LethalCompanyDir>/home/DriveB/SteamLibrary/steamapps/common/Lethal Company/</LethalCompanyDir>
+        <TestProfileDir>/home/jordan/.config/r2modmanPlus-local/LethalCompany/profiles/Default/</TestProfileDir>
+    </PropertyGroup>
+    
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="BepInEx.Core" Version="5.4.0" />
+        <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+        <PackageReference Include="UnityEngine.Modules" Version="2022.3.9" PrivateAssets="all"/>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(LethalCompanyDir)Lethal Company_Data/Managed/Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(LethalCompanyDir)Lethal Company_Data/Managed/Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.InputSystem">
+            <HintPath>$(LethalCompanyDir)Lethal Company_Data/Managed/Unity.InputSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Netcode.Runtime" Publicize="true">
+            <HintPath>$(LethalCompanyDir)Lethal Company_Data/Managed/Unity.Netcode.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="MMHOOK_Assembly-CSharp">
+            <HintPath>$(TestProfileDir)BepInEx/plugins/MMHOOK/MMHOOK_Assembly-CSharp.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BepInEx.Core" Version="6.0.0-pre.1" />
+    </ItemGroup>
+
+</Project>

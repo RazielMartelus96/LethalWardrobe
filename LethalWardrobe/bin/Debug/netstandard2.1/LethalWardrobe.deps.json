@@ -7,12 +7,13 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "LethalWardrobe/0.0.0-alpha.0": {
+      "LethalWardrobe/0.0.0-alpha.0.4": {
         "dependencies": {
           "BepInEx.Analyzers": "1.0.8",
           "BepInEx.AssemblyPublicizer.MSBuild": "0.4.1",
           "BepInEx.Core": "5.4.21",
           "BepInEx.PluginInfoProps": "2.1.0",
+          "LethalWardrobeAPI": "1.0.0",
           "MinVer": "4.3.0",
           "UnityEngine.Modules": "2022.3.9",
           "Assembly-CSharp-firstpass": "0.0.0.0",
@@ -655,6 +656,18 @@
           }
         }
       },
+      "LethalWardrobeAPI/1.0.0": {
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "BepInEx.PluginInfoProps": "2.1.0"
+        },
+        "runtime": {
+          "LethalWardrobeAPI.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Assembly-CSharp-firstpass/0.0.0.0": {
         "runtime": {
           "Assembly-CSharp-firstpass.dll": {
@@ -954,7 +967,7 @@
     }
   },
   "libraries": {
-    "LethalWardrobe/0.0.0-alpha.0": {
+    "LethalWardrobe/0.0.0-alpha.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1238,6 +1251,11 @@
       "sha512": "sha512-sSxqZjd05U0NWlX+eappdlsEuXFvDRHkUaClDVTocGRzCmIwNvgGJIPh22lGklIpNZ3cJZneYJkIUnEIazR8VA==",
       "path": "unityengine.modules/2022.3.9",
       "hashPath": "unityengine.modules.2022.3.9.nupkg.sha512"
+    },
+    "LethalWardrobeAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Assembly-CSharp-firstpass/0.0.0.0": {
       "type": "reference",

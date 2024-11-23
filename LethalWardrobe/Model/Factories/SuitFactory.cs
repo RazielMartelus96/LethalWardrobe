@@ -33,9 +33,13 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
                 if (asset is Material material) _customMaterialCache.Add(material.name, material);
             }
         }
+        ulong suitsCount = 0;
         foreach (var texturePath in _texturePaths)
         {
-            suits.Add(HandleSuitModifications(InitSuitFromPath(texturePath), texturePath));
+            ISuit suit = HandleSuitModifications(InitSuitFromPath(texturePath, suitsCount), texturePath);
+            SuitManager.Instance.RegisterSuit(suit);
+            suits.Add(suit);
+            suitsCount++;
         }
         
 
@@ -54,7 +58,7 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
         _instance = instance;
     }
 
-    private ISuit InitSuitFromPath(string texturePath)
+    private ISuit InitSuitFromPath(string texturePath, ulong suitsCount)
     {
         if (string.IsNullOrEmpty(texturePath))
         {
@@ -63,6 +67,7 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
         }
         
         ISuit suit = new CustomSuit();
+        suit.Id = suitsCount;
         suit.UnlockableName = Path.GetFileNameWithoutExtension(texturePath);
         suit.SuitMaterial = InitMaterialFromPath(texturePath);
         if (suit.SuitMaterial == null) Debug.LogError($"Failed to initialize material from path: {texturePath}");
@@ -150,9 +155,11 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
                         case "PRICE" when int.TryParse(valueData, out var price):
                             suit = new PurchaseableSuit
                             {
+                                Id = suit.Id,
                                 UnlockableName = suit.UnlockableName,
                                 SuitMaterial = suit.SuitMaterial,
                                 Price = price
+                                
                             };
                             break;
 

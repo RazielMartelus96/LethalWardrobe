@@ -1,8 +1,12 @@
+using System.Runtime.CompilerServices;
 using BepInEx;
+using LethalWardrobe.Model;
 using LethalWardrobe.Model.Config;
 using LethalWardrobe.Patches;
+using UnityEngine;
 
 namespace LethalWardrobe;
+[BepInDependency("Curiosity_Core-Lethal_Wardrobe_API")]
 [BepInPlugin(ModGuid, ModName, ModVersion)]
 public class LethalWardrobe : BaseUnityPlugin
 {
@@ -14,11 +18,20 @@ public class LethalWardrobe : BaseUnityPlugin
     {
         var terminal = FindObjectOfType<Terminal>();
         InitConfig();
+        InitAPI();
         StartOfRoundPatches.Init(terminal);
     }
 
     private void InitConfig()
     {
         ConfigHandler.Instance.Initialize(Config);
+    }
+
+    private void InitAPI()
+    {
+        var apiLoaderObject = new GameObject("APILoader");
+        apiLoaderObject.AddComponent<APILoader>();
+        DontDestroyOnLoad(apiLoaderObject);
+
     }
 }
