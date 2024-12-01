@@ -21,7 +21,8 @@
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.bepinex.dev/v3/index.json": {}
+          "https://nuget.bepinex.dev/v3/index.json": {},
+          "https://nuget.windows10ce.com/nuget/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -84,6 +85,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2022.3.9, )"
+            },
+            "WhiteSpike-Interactive_Terminal_API": {
+              "target": "Package",
+              "version": "[1.2.0, )"
             }
           },
           "imports": [
@@ -123,7 +128,8 @@
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.bepinex.dev/v3/index.json": {}
+          "https://nuget.bepinex.dev/v3/index.json": {},
+          "https://nuget.windows10ce.com/nuget/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {

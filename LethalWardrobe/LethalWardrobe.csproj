@@ -26,6 +26,7 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="MinVer" Version="4.3.0" PrivateAssets="all" />
+        <PackageReference Include="WhiteSpike-Interactive_Terminal_API" Version="1.2.0" />
     </ItemGroup>
 
     <!-- Runtime dependencies -->
