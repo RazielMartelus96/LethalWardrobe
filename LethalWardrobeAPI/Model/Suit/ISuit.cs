@@ -27,5 +27,6 @@ public interface ISuit
     /// Boolean check representing whether the suit is unlocked by default or not. 
     /// </summary>
     bool IsDefault { get; set; }
+    bool IsUnlocked { get; set; }
 
 }

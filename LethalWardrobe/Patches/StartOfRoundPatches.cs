@@ -5,6 +5,7 @@ using System.Linq;
 using BepInEx;
 using LethalWardrobe.Model.Config;
 using LethalWardrobe.Model.Factories;
+using LethalWardrobe.Model.Persistence;
 using LethalWardrobe.Model.Suit;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -21,8 +22,63 @@ public class StartOfRoundPatches
         _terminal = terminal;
         Debug.Log("LethalWardrobe: StartOfRoundPatches!!!!!!");
         On.StartOfRound.Start += StartOfRoundOnStart;
+        On.StartOfRound.LoadUnlockables += StartOfRoundOnLoadUnlockables;
         On.StartOfRound.PositionSuitsOnRack += StartOfRoundOnPositionSuitsOnRack;
+        On.GameNetworkManager.SaveGame += GameNetworkManagerOnSaveGame;
     }
+
+    private static void GameNetworkManagerOnSaveGame(On.GameNetworkManager.orig_SaveGame orig, GameNetworkManager self)
+    {
+        Debug.Log("LethalWardrobe: ON DISABLE!!!!!!");
+        List<ISuit> suits = SuitManager.Instance.GetSuits();
+        List<UnlockableItem> unlockables = StartOfRound.Instance.unlockablesList.unlockables;
+        List<UnlockableItem> itemsToRemove = [];
+        foreach (var unlockable in unlockables)
+        {
+            if (suits.Any(SuitDataMatchesName))
+            {
+                itemsToRemove.Add(unlockable);
+            }
+
+            bool SuitDataMatchesName(ISuit suit) => suit.UnlockableName == unlockable.unlockableName;
+        }
+        
+        unlockables.RemoveAll(unlockable => itemsToRemove.Contains(unlockable));
+        orig(self);    
+    }
+    
+
+
+    private static void StartOfRoundOnLoadUnlockables(On.StartOfRound.orig_LoadUnlockables orig, StartOfRound self)
+    {
+        orig(self);
+        var dataList = PersistenceManager.Instance.GetSuitData();
+        Debug.Log("Got to checking suit count");
+        if (dataList is { Suits.Count: 0 }) 
+            return;
+        Debug.Log($"Got to for loop after finding out dataList size is: {dataList.Suits.Count} ");
+
+        foreach (var unlockable in self.unlockablesList.unlockables)
+        {
+            Func<SuitData, bool> suitDataMatchesName = data => data.Name == unlockable.unlockableName;
+
+            if (!dataList.Suits.Any(suitDataMatchesName)) continue;
+            Debug.Log("Passed first if statement and found matching names");
+
+            if (ConfigHandler.Instance.GetConfigValue<bool>(ConfigKey.AllSuitsUnlocked))
+            {
+                unlockable.alreadyUnlocked = true;
+                continue;
+            }
+            Debug.Log("Got past the config handler");
+
+            var matchingSuit = dataList.Suits.FirstOrDefault(suitDataMatchesName);
+            Debug.Log("About to cehck unlockable to see if its already unlocked.");
+
+            unlockable.alreadyUnlocked = matchingSuit is { IsUnlocked: true };
+        }
+    }
+
     private static void StartOfRoundOnStart(On.StartOfRound.orig_Start orig, StartOfRound self)
     {
         _suitFactory = InitializeSuitFactory(ref self);

@@ -7,13 +7,14 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "LethalWardrobe/0.0.0-alpha.0.4": {
+      "LethalWardrobe/0.0.0-alpha.0.5": {
         "dependencies": {
           "BepInEx.Analyzers": "1.0.8",
           "BepInEx.AssemblyPublicizer.MSBuild": "0.4.1",
           "BepInEx.Core": "5.4.21",
           "BepInEx.PluginInfoProps": "2.1.0",
           "LethalWardrobeAPI": "1.0.0",
+          "MaxWasUnavailable.LethalModDataLib": "1.2.2",
           "MinVer": "4.3.0",
           "UnityEngine.Modules": "2022.3.9",
           "Assembly-CSharp-firstpass": "0.0.0.0",
@@ -79,6 +80,19 @@
           "lib/netstandard2.0/0Harmony.dll": {
             "assemblyVersion": "2.7.0.0",
             "fileVersion": "2.7.0.0"
+          }
+        }
+      },
+      "MaxWasUnavailable.LethalModDataLib/1.2.2": {
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "BepInEx.PluginInfoProps": "2.1.0",
+          "UnityEngine.Modules": "2022.3.9"
+        },
+        "runtime": {
+          "lib/netstandard2.1/MaxWasUnavailable.LethalModDataLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.2.2.0"
           }
         }
       },
@@ -967,7 +981,7 @@
     }
   },
   "libraries": {
-    "LethalWardrobe/0.0.0-alpha.0.4": {
+    "LethalWardrobe/0.0.0-alpha.0.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1013,6 +1027,13 @@
       "sha512": "sha512-lec/SkduQspMa3Pi/nM/NSvA84Za8HCCWA8ybdToKiTqnBZa+JC5g6rxoFQCg/1vNuYcvjy77edePZzIEsRmvw==",
       "path": "harmonyx/2.7.0",
       "hashPath": "harmonyx.2.7.0.nupkg.sha512"
+    },
+    "MaxWasUnavailable.LethalModDataLib/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sIvyoqkr6YH9UMxhPjw7i7W9JyRFNFwt9Dx+eDGT+JbuHx1PzAQvWiIb7GNpzE6eeHy1UDjjPE0N859YMXcN3A==",
+      "path": "maxwasunavailable.lethalmoddatalib/1.2.2",
+      "hashPath": "maxwasunavailable.lethalmoddatalib.1.2.2.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",

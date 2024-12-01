@@ -18,7 +18,7 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
     private StartOfRound _instance;
     private List<string> _texturePaths = [];
     public List<string> SuitFolderPaths { get; set; }
-
+    private readonly Dictionary<string, Material> _materialCache = new();
     public List<ISuit> Create()
     {
         List<ISuit> suits = new();
@@ -77,16 +77,29 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
 
     private Material InitMaterialFromPath(string texturePath)
     {
+        if (_materialCache.TryGetValue(texturePath, out var cachedMaterial))
+            return cachedMaterial;
+
         var originalSuit = SuitUtils.GetOriginalSuit(ref _instance);
         var material = Path
             .GetFileNameWithoutExtension(texturePath)
             .ToLower() == "default"
-            ? originalSuit.suitMaterial
+            ? GetDefaultMaterial()
             : Instantiate(JsonUtility.FromJson<UnlockableItem>(JsonUtility.ToJson(originalSuit)).suitMaterial);
+
         material.mainTexture = InitSuitTextureFromPath(texturePath);
+        _materialCache[texturePath] = material;
+
         return material;
     }
+    private Material _defaultMaterial;
 
+    private Material GetDefaultMaterial()
+    {
+        if (_defaultMaterial == null)
+            _defaultMaterial = SuitUtils.GetOriginalSuit(ref _instance).suitMaterial;
+        return _defaultMaterial;
+    }
     private Texture2D InitSuitTextureFromPath(string texturePath)
     {
         var fileData = File.ReadAllBytes(texturePath);
@@ -150,6 +163,30 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
                 if (valueData.EndsWith(".png"))
                     LoadAdvancedTexture(texturePath, valueData, keyData, suit.SuitMaterial);
                 else
+                {
+                    switch (valueData)
+                    {
+                        case "KEYWORD":
+                            suit.SuitMaterial.EnableKeyword(keyData);
+                            break;
+
+                        case "DISABLEKEYWORD":
+                            suit.SuitMaterial.DisableKeyword(keyData);
+                            break;
+
+                        case "SHADERPASS":
+                            suit.SuitMaterial.SetShaderPassEnabled(keyData, true);
+                            break;
+
+                        case "DISABLESHADERPASS":
+                            suit.SuitMaterial.SetShaderPassEnabled(keyData, false);
+                            break;
+
+                        default:
+                            suit.SuitMaterial = ApplyNumericOrVectorValue(keyData, valueData, suit.SuitMaterial);
+                            break;
+                    }
+
                     switch (keyData)
                     {
                         case "PRICE" when int.TryParse(valueData, out var price):
@@ -162,36 +199,16 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
                                 
                             };
                             break;
-
-                        case "KEYWORD":
-                            suit.SuitMaterial.EnableKeyword(valueData);
-                            break;
-
-                        case "DISABLEKEYWORD":
-                            suit.SuitMaterial.DisableKeyword(valueData);
-                            break;
-
-                        case "SHADERPASS":
-                            suit.SuitMaterial.SetShaderPassEnabled(valueData, true);
-                            break;
-
-                        case "DISABLESHADERPASS":
-                            suit.SuitMaterial.SetShaderPassEnabled(valueData, false);
-                            break;
-
                         case "SHADER":
                             var shader = Shader.Find(valueData);
                             suit.SuitMaterial.shader = shader;
                             break;
-
                         case "MATERIAL":
-                            ApplyCustomMaterial(valueData, suit.SuitMaterial.mainTexture);
-                            break;
-
-                        default:
-                            ApplyNumericOrVectorValue(keyData, valueData, suit.SuitMaterial);
+                            suit.SuitMaterial = ApplyCustomMaterial(valueData, suit.SuitMaterial.mainTexture);
                             break;
                     }
+                }
+                
             }
         }
         return suit;
@@ -208,19 +225,26 @@ public class SuitFactory : MonoBehaviour, ISuitFactory
         material.SetTexture(textureKey, advancedTexture);
     }
 
-    private void ApplyCustomMaterial(string materialName, Texture mainTexture)
+    private Material ApplyCustomMaterial(string materialName, Texture mainTexture)
     {
         var customMaterial = Instantiate(_customMaterialCache[materialName]);
         customMaterial.mainTexture = mainTexture;
+        return customMaterial;
     }
 
-
-    private void ApplyNumericOrVectorValue(string key, string value, Material material)
+    private Material ApplyNumericOrVectorValue(string key, string value, Material material)
     {
         if (float.TryParse(value, out var floatValue))
+        {
             material.SetFloat(key, floatValue);
-        else if (TryParseVector4(value, out var vectorValue)) material.SetVector(key, vectorValue);
+        }
+        else if (TryParseVector4(value, out var vectorValue))
+        {
+            material.SetVector(key, vectorValue);
+        }
+        return material;
     }
+    
 
     private static bool TryParseVector4(string input, out Vector4 vector)
     {

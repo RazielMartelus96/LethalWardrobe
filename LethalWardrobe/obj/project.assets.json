@@ -77,6 +77,24 @@
           }
         }
       },
+      "MaxWasUnavailable.LethalModDataLib/1.2.2": {
+        "type": "package",
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "BepInEx.PluginInfoProps": "1.1.0",
+          "UnityEngine.Modules": "2022.3.9"
+        },
+        "compile": {
+          "lib/netstandard2.1/MaxWasUnavailable.LethalModDataLib.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/MaxWasUnavailable.LethalModDataLib.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -834,6 +852,23 @@
         "lib/netstandard2.0/0Harmony.dll",
         "lib/netstandard2.0/0Harmony.xml",
         "logo_mini.png"
+      ]
+    },
+    "MaxWasUnavailable.LethalModDataLib/1.2.2": {
+      "sha512": "sIvyoqkr6YH9UMxhPjw7i7W9JyRFNFwt9Dx+eDGT+JbuHx1PzAQvWiIb7GNpzE6eeHy1UDjjPE0N859YMXcN3A==",
+      "type": "package",
+      "path": "maxwasunavailable.lethalmoddatalib/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "lib/net472/MaxWasUnavailable.LethalModDataLib.dll",
+        "lib/net472/MaxWasUnavailable.LethalModDataLib.xml",
+        "lib/netstandard2.1/MaxWasUnavailable.LethalModDataLib.dll",
+        "lib/netstandard2.1/MaxWasUnavailable.LethalModDataLib.xml",
+        "maxwasunavailable.lethalmoddatalib.1.2.2.nupkg.sha512",
+        "maxwasunavailable.lethalmoddatalib.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -2861,6 +2896,7 @@
       "BepInEx.Core >= 5.4.21",
       "BepInEx.PluginInfoProps >= 2.1.0",
       "LethalWardrobeAPI >= 1.0.0",
+      "MaxWasUnavailable.LethalModDataLib >= 1.2.2",
       "MinVer >= 4.3.0",
       "UnityEngine.Modules >= 2022.3.9"
     ]
@@ -2934,6 +2970,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )"
+          },
+          "MaxWasUnavailable.LethalModDataLib": {
+            "target": "Package",
+            "version": "[1.2.2, )"
           },
           "MinVer": {
             "suppressParent": "All",

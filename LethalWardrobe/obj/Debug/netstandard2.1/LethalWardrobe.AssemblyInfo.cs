@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A streamlined, More Suits compatiable, mod that allows for easy addition of custo" +
     "m suits to Lethal Company")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.0-alpha.0.4+5c612c1d22004b81c1e0866817006f7f835898b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.0-alpha.0.5+cd61d42946511c0b12a684330d3794d5bb53f515")]
 [assembly: System.Reflection.AssemblyProductAttribute("LethalWardrobe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LethalWardrobe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.0.0")]

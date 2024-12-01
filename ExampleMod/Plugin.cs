@@ -11,7 +11,7 @@ public class Plugin : BaseUnityPlugin
 
     private void Awake()
     {
-        LethalWardrobeApi.Instance.Initialize(this);
+        
         Patches.Init();
     }
     

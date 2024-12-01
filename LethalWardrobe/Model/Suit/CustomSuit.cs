@@ -5,6 +5,7 @@ namespace LethalWardrobe.Model.Suit;
 /// <summary>
 /// Instance containing the key data of a Custom Suit within the Game World. 
 /// </summary>
+[System.Serializable]
 public class CustomSuit : ISuit
 {
     public ulong Id { get; set; }
@@ -15,4 +16,6 @@ public class CustomSuit : ISuit
     public Material SuitMaterial { get; set; }
     /// <inheritdoc/>
     public bool IsDefault { get; set; }
+
+    public bool IsUnlocked { get; set; }
 }

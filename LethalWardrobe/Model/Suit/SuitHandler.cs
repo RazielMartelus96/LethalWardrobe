@@ -15,7 +15,6 @@ public class SuitHandler
     /// </summary>
     private static readonly Lazy<SuitHandler> LazyInstance = new(() => new SuitHandler());
     public static SuitHandler Instance => LazyInstance.Value;
-    private Dictionary<string, ISuit> _suits = new();
     private TerminalNode _cancelPurchase;
     public void RegisterSuits(List<ISuit> suits, StartOfRound instance, Terminal terminal)
     {
@@ -23,7 +22,6 @@ public class SuitHandler
         suits.ForEach(suit =>
         {
             var originalUnlockablesCount = instance.unlockablesList.unlockables.Count;
-            _suits.Add(suit.UnlockableName, suit);
             RegisterSuit(suit, instance);
             if (suit is IPurchasable purchasable)
             {
@@ -49,6 +47,7 @@ public class SuitHandler
             JsonUtility.FromJson<UnlockableItem>(JsonUtility.ToJson(originalSuit));
         unlockableSuit.suitMaterial = suit.SuitMaterial;
         unlockableSuit.unlockableName = suit.UnlockableName;
+        unlockableSuit.alreadyUnlocked = true;
         instance.unlockablesList.unlockables.Add(unlockableSuit);
     }
     private void HandlePurchasable(IPurchasable purchasable, StartOfRound instance, Terminal terminal,int unlockableID)
@@ -128,6 +127,7 @@ public class SuitHandler
         allKeywordsList.Add(confirm.noun);
         allKeywordsList.Add(deny.noun);
         terminal.terminalNodes.allKeywords = allKeywordsList.ToArray();
+        Debug.Log("Purchaseable Suit Added!");
     }
 
 

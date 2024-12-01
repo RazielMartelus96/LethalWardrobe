@@ -32,6 +32,5 @@ public class LethalWardrobe : BaseUnityPlugin
         var apiLoaderObject = new GameObject("APILoader");
         apiLoaderObject.AddComponent<APILoader>();
         DontDestroyOnLoad(apiLoaderObject);
-
     }
 }

@@ -71,6 +71,10 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
+            "MaxWasUnavailable.LethalModDataLib": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
             "MinVer": {
               "suppressParent": "All",
               "target": "Package",

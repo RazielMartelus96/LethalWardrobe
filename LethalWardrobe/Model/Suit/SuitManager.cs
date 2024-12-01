@@ -20,9 +20,11 @@ public class SuitManager : ISuitManager
     public static SuitManager Instance => instance.Value;
     
     private Dictionary<ulong,ISuit> _suits = new();
+    private Dictionary<string,ISuit> _suitNameCache = new();
     public void RegisterSuit(ISuit suit)
     {
         _suits.Add(suit.Id, suit);
+        _suitNameCache.Add(suit.UnlockableName, suit);
     }
 
     public void UnregisterSuit(ulong id)
@@ -30,7 +32,8 @@ public class SuitManager : ISuitManager
         _suits.Remove(id);
     }
 
-    public ISuit GetSuit(ulong id) => _suits[id];
+    public ISuit GetSuit(ulong id) => _suits.GetValueOrDefault(id);
+    public ISuit GetSuit(string name) => _suitNameCache.GetValueOrDefault(name);
 
     public List<ISuit> GetSuits() => _suits.Values.ToList();
 }

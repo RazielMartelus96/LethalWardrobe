@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6WOQ42WkVBE=",
+  "dgSpecHash": "3tc5IEPjKJg=",
   "success": true,
   "projectFilePath": "/home/jordan/RiderProjects/LethalWardrobe/LethalWardrobe/LethalWardrobe.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "/home/jordan/.nuget/packages/bepinex.core/5.4.21/bepinex.core.5.4.21.nupkg.sha512",
     "/home/jordan/.nuget/packages/bepinex.plugininfoprops/2.1.0/bepinex.plugininfoprops.2.1.0.nupkg.sha512",
     "/home/jordan/.nuget/packages/harmonyx/2.7.0/harmonyx.2.7.0.nupkg.sha512",
+    "/home/jordan/.nuget/packages/maxwasunavailable.lethalmoddatalib/1.2.2/maxwasunavailable.lethalmoddatalib.1.2.2.nupkg.sha512",
     "/home/jordan/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/jordan/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/home/jordan/.nuget/packages/minver/4.3.0/minver.4.3.0.nupkg.sha512",

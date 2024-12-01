@@ -20,10 +20,18 @@ public class LethalWardrobeApi
     /// <summary>
     /// Gets the singleton instance of the manager.
     /// </summary>
-    public static LethalWardrobeApi Instance => instance.Value;
-
-    public void Initialize(BaseUnityPlugin plugin)
+    public static LethalWardrobeApi Instance
     {
+        get { if(instance.Value._suitManager == null)
+            throw new NullReferenceException("The API's Suit Manager did not initialize.");
+            return instance.Value;
+        }
+    }
+
+    public void Initialize()
+    {
+        if (_suitManager != null)
+            return;
         IApiLoader apiLoader = Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive
                 .Include,FindObjectsSortMode.None)
             .OfType<IApiLoader>()
@@ -31,7 +39,7 @@ public class LethalWardrobeApi
         _suitManager = apiLoader.SuitManager;
         Debug.Log($"Initialized Lethal Wardrobe API");
     }
-    private ISuitManager _suitManager;
+    private ISuitManager? _suitManager;
 
     public ISuit? GetSuit(ulong id) => _suitManager.GetSuit(id);
     
